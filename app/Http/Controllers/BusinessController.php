@@ -8,7 +8,8 @@ use App\Models\Business;
 class BusinessController extends Controller {
 
     public function index() {
-        return Business::all('name', 'thumbnail');
+        // return Business::all('name', 'thumbnail');
+        return Business::all();
     }
 
     public function show($id) {

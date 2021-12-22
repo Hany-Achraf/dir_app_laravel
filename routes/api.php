@@ -3,9 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Area;
+use App\Models\Destination;
 use App\Models\Category;
 use App\Models\Business;
+use App\Models\Event;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BusinessController;
@@ -26,17 +27,18 @@ use Illuminate\Support\Facades\Hash;
 
 /** php artisn route:list */
 
-Route::post('/areas', function() {
-    return Area::create([
-        'name' => 'The Mall, Mid Valley Southkey',
-    ]);
+Route::get('/destinations', function() {
+    return Destination::all(['id', 'name', 'img_path']);
 });
 
+Route::get('/categories', function() {
+    return Category::where('parent_id', NULL)
+                    ->with('subcategories')
+                    ->get(['id', 'name', 'img_path']);
+});
 
-Route::post('/categories', function() {
-    return Category::create([
-        'name' => 'Sports',
-    ]);
+Route::get('/events', function() {
+    return Event::all(['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
 });
 
 Route::post('/businesses', function() {
