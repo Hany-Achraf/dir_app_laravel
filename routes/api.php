@@ -9,6 +9,7 @@ use App\Models\Business;
 use App\Models\Event;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\V1\HomeController;
 use App\Http\Controllers\BusinessController;
 
 use App\Models\User;
@@ -27,6 +28,8 @@ use Illuminate\Support\Facades\Hash;
 
 /** php artisn route:list */
 
+Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/destinations', function() {
     return Destination::all(['id', 'name', 'img_path']);
 });
@@ -35,6 +38,12 @@ Route::get('/categories', function() {
     return Category::where('parent_id', NULL)
                     ->with('subcategories')
                     ->get(['id', 'name', 'img_path']);
+
+    // return Category::where('parent_id', NULL)
+    //             ->with('subcategories', function($query) {
+    //                 $query->get(['id', 'name']);
+    //             })
+    //             ->get(['id', 'name', 'img_path']);
 });
 
 Route::get('/events', function() {

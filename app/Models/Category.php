@@ -12,6 +12,12 @@ class Category extends Model
     // protected $fillable = ['name'];
     // protected $visible = ['name'];
 
+    protected $hidden = ['parent_id', 'created_at', 'updated_at'];
+
+    public function businesses() {
+        $this->belongsToMany(Business::class);
+    }
+
     public function subcategories() {
         return $this->hasMany(Category::class, 'parent_id');
     }

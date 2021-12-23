@@ -16,12 +16,12 @@ class Business extends Model
         'instagram_link', 'featured', 'category_id', 'area_id'
     ];
 
-    public function area() {
-        return $this->belongsTo(Area::class);
+    public function destination() {
+        return $this->belongsTo(Destination::class);
     }
 
-    public function category() {
-        return $this->belongsTo(Category::class);
+    public function categories() {
+        $this->belongsToMany(Category::class);
     }
 
     public function reviews() {

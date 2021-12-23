@@ -28,11 +28,9 @@ class CreateBusinessesTable extends Migration
             $table->string('facebook_link')->nullable();
             $table->string('instagram_link')->nullable();
             $table->bigInteger('destination_id')->unsigned()->nullable();
-            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('destination_id')->references('id')->on('destinations');
-            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
