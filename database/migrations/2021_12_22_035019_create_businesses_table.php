@@ -17,8 +17,8 @@ class CreateBusinessesTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('rating')->default(0);
-            $table->string('thumbnail_url');
-            $table->string('cover_img_url');
+            $table->string('icon_img_path');
+            $table->string('cover_img_path');
             $table->text('description')->nullable();
             $table->string('phone_no');
             $table->string('address');

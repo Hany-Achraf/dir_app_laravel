@@ -10,7 +10,7 @@ use App\Models\Event;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\V1\HomeController;
-use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\Api\V1\BusinessController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -29,6 +29,8 @@ use Illuminate\Support\Facades\Hash;
 /** php artisn route:list */
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/businesses/{id}', [BusinessController::class, 'show']);
 
 Route::get('/destinations', function() {
     return Destination::all(['id', 'name', 'img_path']);
@@ -76,9 +78,9 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
-    Route::get('/businesses', [BusinessController::class, 'index']);
+    // Route::get('/businesses', [BusinessController::class, 'index']);
 
-    Route::get('/businesses/{id}', [BusinessController::class, 'show']);
+    // Route::get('/businesses/{id}', [BusinessController::class, 'show']);
 
     Route::get('/user', function (Request $request) {
         return $request->user();
