@@ -10,7 +10,11 @@ use App\Models\Event;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\V1\HomeController;
+use App\Http\Controllers\Api\V1\CategoryController;
+use App\Http\Controllers\Api\V1\DestinationController;
 use App\Http\Controllers\Api\V1\BusinessController;
+use App\Http\Controllers\Api\V1\PhotoController;
+use App\Http\Controllers\Api\V1\ReviewController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -32,45 +36,18 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/businesses/{id}', [BusinessController::class, 'show']);
 
-Route::get('/destinations', function() {
-    return Destination::all(['id', 'name', 'img_path']);
-});
+Route::get('businesses/{id}/photos', [PhotoController::class, 'index']);
 
-Route::get('/categories', function() {
-    return Category::where('parent_id', NULL)
-                    ->with('subcategories')
-                    ->get(['id', 'name', 'img_path']);
+Route::get('businesses/{id}/reviews', [ReviewController::class, 'index']);
 
-    // return Category::where('parent_id', NULL)
-    //             ->with('subcategories', function($query) {
-    //                 $query->get(['id', 'name']);
-    //             })
-    //             ->get(['id', 'name', 'img_path']);
-});
+Route::get('/destinations', [DestinationController::class, 'index']);
+
+Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::get('/events', function() {
     return Event::all(['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
 });
 
-Route::post('/businesses', function() {
-    return Business::create([
-        'name' => 'Al-Ikhsan Sports',
-        'description' => 'Welcome to a sport lover’s paradise! Al-Ikhsan Sports, award winning sports retailer and one of the largest in Malaysia, progressively aims high to be THE largest sports retailer in SouthEast Asia in the near future. From footwear to accessories and international or national team jerseys to lifestyle pieces. Authorised dealer of all your favorite sports brands like Nike, Reebok, Adidas, Asics and Puma, at competitive prices direct from the manufacturers. You will find it all here, at THE sports destination store.',
-        'contact' => '019-7066523',
-        'address' => 'LG-018 (The Mall, Mid Valley Southkey)',
-        'time' => 'Sun – Wed (10:00 – 22:00)',
-        'website_link' => ' http://www.al-ikhsan.com',
-        'facebook_link' => 'http://www.facebook.com/alikhsansports',
-        'instagram_link' => null,
-        'featured' => 1,
-        'category_id' => 1,
-        'area_id' => 1,
-    ]);
-});
-
-// Route::get('/businesses', function() {
-//     return Business::all();
-// });
 
 
 /** Section - Following up with bravetrasery */

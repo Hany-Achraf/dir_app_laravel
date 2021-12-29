@@ -9,12 +9,10 @@ class Business extends Model
 {
     use HasFactory;
 
-    protected $hidden = ['id', 'created_at', 'updated_at', 'area_id', 'category_id', 'featured'];
-
-    protected $fillable = [
-        'name', 'description', 'contact', 'address', 'time', 'website_link', 'facebook_link',
-        'instagram_link', 'featured', 'category_id', 'area_id'
-    ];
+    // protected $fillable = [
+    //     'name', 'description', 'contact', 'address', 'time', 'website_link', 'facebook_link',
+    //     'instagram_link', 'featured', 'category_id', 'area_id'
+    // ];
 
     public function destination() {
         return $this->belongsTo(Destination::class);
@@ -28,8 +26,8 @@ class Business extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function imgUrls() {
-        return $this->hasMany(ImgUrl::class);
+    public function photos() {
+        return $this->hasMany(Photo::class);
     }
 }
 

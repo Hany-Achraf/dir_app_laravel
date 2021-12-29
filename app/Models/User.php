@@ -28,12 +28,12 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    // protected $hidden = [
+    //     'password',
+    //     'remember_token',
+    // ];
 
-    protected $appends = ['avatar'];
+    // protected $appends = ['avatar'];
 
     /**
      * The attributes that should be cast.
@@ -44,7 +44,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getAvatarAttribute() {
-        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) );
+    // public function getAvatarAttribute() {
+    //     return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) );
+    // }
+
+    public function reviews() {
+        return $this->hasMany(Review::class, 'user_id');
     }
 }

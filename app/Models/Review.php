@@ -5,15 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
-{
+class Review extends Model {
     use HasFactory;
-
-    protected $visible = [
-        'user_id',
-        'rating',
-        'comment',
-    ];
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -22,5 +15,4 @@ class Review extends Model
     public function business() {
         return $this->belongsTo(Business::class);
     }
-
 }
