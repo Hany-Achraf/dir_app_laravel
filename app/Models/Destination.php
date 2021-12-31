@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Destination extends Model
-{
+class Destination extends Model {
     use HasFactory;
 
-    // protected $fillable = ['name'];
-    // protected $visible = ['name'];
+    public function businesses() {
+        return $this->hasMany(Business::class);
+    }
 }

@@ -11,15 +11,28 @@ use App\Models\Event;
 
 class HomeController extends Controller {
     public function index() {
+        $categories =  Category::take(7)->where('parent_id', NULL)->with('subcategories')->get();
+        foreach($categories as $category) {
+            $category->makeHidden('parent_id', 'created_at', 'updated_at');
+            foreach($category->subcategories as $subcategory) {
+                $subcategory->makeHidden('parent_id', 'img_path', 'created_at', 'updated_at');
+            }
+        }
+
+        $destinations = Destination::take(3)->get(['id', 'name', 'img_path']);
+
+        $events = Event::take(3)->get(['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
+
+        $promotions =  Promotion::take(3)->with('business')->get();
+        foreach($promotions as $promotion) {
+            $promotion->makeHidden('business_id', 'created_at', 'updated_at');
+        }
+
         return [
-            'categories'    => Category::take(7)->where('parent_id', NULL)
-                                    ->with('subcategories')
-                                    ->get(['id', 'name', 'img_path']),
-            'destinations'  => Destination::take(3)
-                                    ->get(['id', 'name', 'img_path']),
-            'events'        => Event::take(3)
-                                    ->get(['id', 'name', 'description', 'organizer', 'img_path', 'date_time']),
-            'promotions' => Promotion::take(3)->get('*'),
+            'categories'    =>  $categories,
+            'destinations'  =>  $destinations,
+            'events'        =>  $events,
+            'promotions'    =>  $promotions,
         ];
     }
 }

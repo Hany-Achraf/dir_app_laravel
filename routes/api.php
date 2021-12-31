@@ -15,6 +15,8 @@ use App\Http\Controllers\Api\V1\DestinationController;
 use App\Http\Controllers\Api\V1\BusinessController;
 use App\Http\Controllers\Api\V1\PhotoController;
 use App\Http\Controllers\Api\V1\ReviewController;
+use App\Http\Controllers\Api\V1\PromotionController;
+use App\Http\Controllers\Api\V1\EventController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -40,14 +42,17 @@ Route::get('businesses/{id}/photos', [PhotoController::class, 'index']);
 
 Route::get('businesses/{id}/reviews', [ReviewController::class, 'index']);
 
-Route::get('/destinations', [DestinationController::class, 'index']);
-
 Route::get('/categories', [CategoryController::class, 'index']);
 
-Route::get('/events', function() {
-    return Event::all(['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
-});
+Route::get('/categories/{id}', [CategoryController::class, 'show']);
 
+Route::get('/destinations', [DestinationController::class, 'index']);
+
+Route::get('/destinations/{id}', [DestinationController::class, 'show']);
+
+Route::get('/promotions', [PromotionController::class, 'index']);
+
+Route::get('/events', [EventController::class, 'index']);
 
 
 /** Section - Following up with bravetrasery */
@@ -55,10 +60,6 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
-    // Route::get('/businesses', [BusinessController::class, 'index']);
-
-    // Route::get('/businesses/{id}', [BusinessController::class, 'show']);
-
     Route::get('/user', function (Request $request) {
         return $request->user();
     });

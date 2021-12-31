@@ -4,16 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryBusinessTable extends Migration
-{
+class CreateBusinessCategoryTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('category_business', function (Blueprint $table) {
+    public function up() {
+        Schema::create('business_category', function (Blueprint $table) {
             $table->id();
 
             $table->bigInteger('business_id')->unsigned();
@@ -31,8 +29,7 @@ class CreateCategoryBusinessTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('category_business');
+    public function down() {
+        Schema::dropIfExists('business_category');
     }
 }

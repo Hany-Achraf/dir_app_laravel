@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
-{
+class Category extends Model {
     use HasFactory;
 
-    // protected $fillable = ['name'];
-    // protected $visible = ['name'];
-
-    // protected $hidden = ['parent_id', 'created_at', 'updated_at'];
+    protected $hidden = ['pivot'];
 
     public function businesses() {
-        $this->belongsToMany(Business::class);
+        $businessAttributes = [
+            'businesses.id', 'businesses.name', 'businesses.icon_img_path',
+            'businesses.rating', 'businesses.working_time',
+        ];
+        return $this->belongsToMany(Business::class)->select($businessAttributes);
     }
 
     public function subcategories() {

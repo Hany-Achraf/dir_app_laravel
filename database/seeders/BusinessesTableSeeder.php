@@ -12,7 +12,7 @@ class BusinessesTableSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        Business::insert([
+        Business::create([
             'name' => 'Al-Ikhsan Sports | Mid Valley SouthKey',
             'rating' => 4,
             'icon_img_path' => 'storage/images/businesses/icons/al-ikhsan-icon.png',
@@ -26,6 +26,10 @@ class BusinessesTableSeeder extends Seeder {
             'facebook_link' => 'https://www.facebook.com/alikhsansports',
             'instagram_link' => 'https://www.instagram.com/',
             'destination_id' => 1,
-        ]);
+        ])->categories()->attach(1);
+
+        $business = Business::find(1);
+        $business->categories()->attach(2);
+        $business->categories()->attach(5);
     }
 }
