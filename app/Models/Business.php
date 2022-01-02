@@ -8,12 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Business extends Model {
     use HasFactory;
 
-    // protected $fillable = [
-    //     'name', 'description', 'contact', 'address', 'time', 'website_link', 'facebook_link',
-    //     'instagram_link', 'featured', 'category_id', 'area_id'
-    // ];
-
-    protected $hidden = ['pivot'];
+    // protected $fillable = [];
 
     public function destination() {
         return $this->belongsTo(Destination::class);
@@ -33,6 +28,10 @@ class Business extends Model {
 
     public function promotions() {
         return $this->hasMany(Promotion::class);
+    }
+
+    public function users() {
+        return $this->belongsToMany(User::class, 'wishlist');
     }
 }
 

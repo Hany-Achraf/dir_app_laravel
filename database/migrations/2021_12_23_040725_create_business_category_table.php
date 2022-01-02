@@ -13,13 +13,8 @@ class CreateBusinessCategoryTable extends Migration {
     public function up() {
         Schema::create('business_category', function (Blueprint $table) {
             $table->id();
-
-            $table->bigInteger('business_id')->unsigned();
-            $table->foreign('business_id')->references('id')->on('businesses');
-
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
-
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('business_id')->constrained();
             $table->timestamps();
         });
     }

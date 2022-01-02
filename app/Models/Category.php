@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model {
     use HasFactory;
 
-    protected $hidden = ['pivot'];
-
     public function businesses() {
         $businessAttributes = [
             'businesses.id', 'businesses.name', 'businesses.icon_img_path',

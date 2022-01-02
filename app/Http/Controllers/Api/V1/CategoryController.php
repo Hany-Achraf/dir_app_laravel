@@ -18,6 +18,11 @@ class CategoryController extends Controller {
     }
 
     public function show($id) {
-        return Category::with('businesses')->findOrFail($id, ['id', 'name']);
+        $category = Category::findOrFail($id, ['id']);
+        $businesses = $category->businesses;
+        foreach($businesses as $business) {
+            $business->makeHidden('pivot');
+        }
+        return $businesses;
     }
 }

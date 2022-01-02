@@ -8,8 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -50,5 +49,13 @@ class User extends Authenticatable
 
     public function reviews() {
         return $this->hasMany(Review::class, 'user_id');
+    }
+
+    // wishlist businesses
+    public function businesses() {
+        return $this->belongsToMany(Business::class, 'wishlist')
+                    ->as('wishlist')
+                    ->withPivot('created_at')
+                    ->select(['businesses.id', 'businesses.name', 'businesses.icon_img_path', 'businesses.rating']);
     }
 }

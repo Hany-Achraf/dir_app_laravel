@@ -11,9 +11,8 @@ class DestinationController extends Controller {
     }
 
     public function show($id) {
-        // return Destination::with(['businesses' => function($query) {
-        //     $query->select('businesses.id', 'businesses.name');
-        // }])->findOrFail($id, ['id', 'name', 'img_path']);
-        return Destination::with('businesses')->findOrFail($id, ['id', 'name', 'img_path']);
+        // $destination = Destination::findOrFail($id);
+        // return $destination->businesses;
+        return Destination::findOrFail($id, ['id'])->businesses;
     }
 }

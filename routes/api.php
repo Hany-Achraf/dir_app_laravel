@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\V1\PhotoController;
 use App\Http\Controllers\Api\V1\ReviewController;
 use App\Http\Controllers\Api\V1\PromotionController;
 use App\Http\Controllers\Api\V1\EventController;
+use App\Http\Controllers\Api\V1\WishlistController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -53,6 +54,8 @@ Route::get('/destinations/{id}', [DestinationController::class, 'show']);
 Route::get('/promotions', [PromotionController::class, 'index']);
 
 Route::get('/events', [EventController::class, 'index']);
+
+Route::get('/wishlist/{user_id}', [WishlistController::class, 'show']);
 
 
 /** Section - Following up with bravetrasery */
