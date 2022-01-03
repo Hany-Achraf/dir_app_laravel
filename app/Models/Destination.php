@@ -9,7 +9,7 @@ class Destination extends Model {
     use HasFactory;
 
     public function businesses() {
-        $businessAttributes = ['id', 'name', 'icon_img_path','rating', 'working_time'];
+        $businessAttributes = ['id', 'name', 'icon_img_path', 'working_time'];
         return $this->hasMany(Business::class)->select($businessAttributes);
     }
 }

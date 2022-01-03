@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Business;
 
 class BusinessController extends Controller {
-    public function show($id) {
+    public function show($id, Request $request) {
         $business =  Business::findOrFail($id);
-        $business->makeHidden('created_at', 'updated_at', 'destination_id');
+        $business->makeHidden('destination_id', 'created_at', 'updated_at');
+
+        $business->setAppends(['avg_rate', 'on_user_wishlist']);
+        $business->setOnWishlistAttribute($request['user_id']);
         return $business;
     }
 }

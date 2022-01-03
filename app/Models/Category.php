@@ -10,8 +10,7 @@ class Category extends Model {
 
     public function businesses() {
         $businessAttributes = [
-            'businesses.id', 'businesses.name', 'businesses.icon_img_path',
-            'businesses.rating', 'businesses.working_time',
+            'businesses.id', 'businesses.name', 'businesses.icon_img_path', 'businesses.working_time'
         ];
         return $this->belongsToMany(Business::class)->select($businessAttributes);
     }

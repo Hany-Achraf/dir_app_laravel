@@ -16,7 +16,6 @@ class CreateBusinessesTable extends Migration
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('rating')->default(0);
             $table->string('icon_img_path');
             $table->string('cover_img_path');
             $table->text('description')->nullable();

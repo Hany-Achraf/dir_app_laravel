@@ -56,6 +56,6 @@ class User extends Authenticatable {
         return $this->belongsToMany(Business::class, 'wishlist')
                     ->as('wishlist')
                     ->withPivot('created_at')
-                    ->select(['businesses.id', 'businesses.name', 'businesses.icon_img_path', 'businesses.rating']);
+                    ->select(['businesses.id', 'businesses.name', 'businesses.icon_img_path']);
     }
 }

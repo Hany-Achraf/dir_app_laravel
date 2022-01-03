@@ -42,6 +42,19 @@ class PhotosTableSeeder extends Seeder {
                     'business_id' => 1,
                     'path' => 'storage/images/businesses/photos/al-ikhsan-7.jpg',
                 ],
+
+                [
+                    'business_id' => 2,
+                    'path' => 'storage/images/businesses/photos/chi-gui-1.jpg',
+                ],
+                [
+                    'business_id' => 2,
+                    'path' => 'storage/images/businesses/photos/chi-gui-2.jpg',
+                ],
+                [
+                    'business_id' => 2,
+                    'path' => 'storage/images/businesses/photos/chi-gui-3.jpg',
+                ],
             ]
         );
 

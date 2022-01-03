@@ -11,8 +11,6 @@ class DestinationController extends Controller {
     }
 
     public function show($id) {
-        // $destination = Destination::findOrFail($id);
-        // return $destination->businesses;
         return Destination::findOrFail($id, ['id'])->businesses;
     }
 }
