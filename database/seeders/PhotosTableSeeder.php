@@ -44,15 +44,15 @@ class PhotosTableSeeder extends Seeder {
                 ],
 
                 [
-                    'business_id' => 2,
+                    'business_id' => 7,
                     'path' => 'storage/images/businesses/photos/chi-gui-1.jpg',
                 ],
                 [
-                    'business_id' => 2,
+                    'business_id' => 7,
                     'path' => 'storage/images/businesses/photos/chi-gui-2.jpg',
                 ],
                 [
-                    'business_id' => 2,
+                    'business_id' => 7,
                     'path' => 'storage/images/businesses/photos/chi-gui-3.jpg',
                 ],
             ]

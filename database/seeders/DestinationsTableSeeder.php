@@ -15,7 +15,15 @@ class DestinationsTableSeeder extends Seeder {
         Destination::insert([
             [
                 'name' => 'The Mall Mid Valley SouthKey',
-                'img_path' => 'storage/images/destinations/mid-valley-jb.png',
+                'img_path' => 'storage/images/destinations/midvalley.png',
+            ],
+            [
+                'name' => 'Mosaic',
+                'img_path' => 'storage/images/destinations/mosaic.jpg',
+            ],
+            [
+                'name' => 'The LakeFront',
+                'img_path' => 'storage/images/destinations/lakefront.jpg',
             ],
             [
                 'name' => 'New York',

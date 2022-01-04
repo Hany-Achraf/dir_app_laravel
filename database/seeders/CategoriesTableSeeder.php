@@ -65,7 +65,7 @@ class CategoriesTableSeeder extends Seeder {
                 'parent_id' => 1,
             ],
             [
-                'name' => 'Jewellery',
+                'name' => 'Sportswear',
                 'parent_id' => 1,
             ],
             [
@@ -73,7 +73,7 @@ class CategoriesTableSeeder extends Seeder {
                 'parent_id' => 2,
             ],
             [
-                'name' => 'Breakfast',
+                'name' => 'Fast Food',
                 'parent_id' => 2,
             ],
             [
