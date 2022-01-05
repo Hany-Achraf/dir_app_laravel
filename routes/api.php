@@ -39,9 +39,9 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/businesses/{id}', [BusinessController::class, 'show']);
 
-Route::get('businesses/{id}/photos', [PhotoController::class, 'index']);
+Route::get('/businesses/{id}/photos', [PhotoController::class, 'index']);
 
-Route::get('businesses/{id}/reviews', [ReviewController::class, 'index']);
+Route::get('/businesses/{id}/reviews', [ReviewController::class, 'index']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
 
@@ -54,6 +54,10 @@ Route::get('/destinations/{id}', [DestinationController::class, 'show']);
 Route::get('/promotions', [PromotionController::class, 'index']);
 
 Route::get('/events', [EventController::class, 'index']);
+
+Route::post('/wishlist/create', [WishlistController::class, 'create']);
+
+Route::delete('/wishlist/destroy', [WishlistController::class, 'destroy']);
 
 Route::get('/wishlist/{user_id}', [WishlistController::class, 'show']);
 

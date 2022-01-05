@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Business;
+use Carbon\Carbon;
 
 class BusinessesTableSeeder extends Seeder {
     /**
@@ -29,7 +30,9 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(1);
         $business->categories()->attach(13);
         $business->users()->attach(1);
+        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
         $business->users()->attach(3);
+        // $business->users()->attach(['id' => 3, 'created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'Adidas',
@@ -49,7 +52,9 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(13);
         $business->categories()->attach(12);
         $business->users()->attach(4);
+        // $business->users()->attach(['id' => 4, 'created_at' => Carbon::now()]);
         $business->users()->attach(1);
+        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'Puma',
@@ -68,7 +73,9 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(13);
         $business->categories()->attach(12);
         $business->users()->attach(2);
+        // $business->users()->attach(['id' => 2, 'created_at' => Carbon::now()]);
         $business->users()->attach(1);
+        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'Crossover Concept Store',
@@ -104,26 +111,7 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(11);
         $business->categories()->attach(12);
         $business->users()->attach(1);
-
-        $business = Business::create([
-            'name' => 'McDonald\'s',
-            'icon_img_path' => 'storage/images/businesses/icons/mcdonalds-icon.jpg',
-            'cover_img_path' => 'storage/images/businesses/covers/mcdonalds-cover.jpg',
-            'description' => 'McDonald\'s has charmed millions of food lovers with its great value wholesome meals. Drop by anytime, for Breakfast, Lunch or Dinner – and eat in or take away. They’ve got all your favourite foods, including world famous Fries, Big Mac®, Quarter Pounder®, Chicken McNuggets®, Egg McMuffin®.',
-            'phone_no' => '03-2201 0506',
-            'address' => 'T-029 | The Mall, Mid Valley Southkey, Persiaran Southkey 1 80150 Johor Bahru Johor',
-            'location_on_map' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4493622302275!2d103.77518911439397!3d1.500958098905396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6ce180efcfb5%3A0x4cfa3e126a713ab5!2sThe%20Mall%2C%20Mid%20Valley%20Southkey!5e0!3m2!1sen!2smy!4v1640680339530!5m2!1sen!2smy" width="960" height="700" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
-            'working_time' => 'Everyday (10:00am – 10:00pm)',
-            'website_link' => 'http://www.mcdonalds.com.my',
-            'facebook_link' => 'http://www.facebook.com/My.McDonalds',
-            'instagram_link' => 'https://www.instagram.com/mcdonaldsmalaysia',
-            'destination_id' => 1,
-            ]);
-        $business->categories()->attach(2);
-        $business->categories()->attach(15);
-        $business->users()->attach(1);
-
-
+        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
 
         // Food
         $business = Business::create([
@@ -141,7 +129,9 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(2);
         $business->categories()->attach(19);
         $business->users()->attach(2);
+        // $business->users()->attach(['id' => 2, 'created_at' => Carbon::now()]);
         $business->users()->attach(4);
+        // $business->users()->attach(['id' => 4, 'created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'McDonald\'s',
@@ -160,6 +150,7 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(2);
         $business->categories()->attach(15);
         $business->users()->attach(1);
+        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'Pizza Hut',
@@ -178,5 +169,6 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(2);
         $business->categories()->attach(15);
         $business->users()->attach(1);
+        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
     }
 }
