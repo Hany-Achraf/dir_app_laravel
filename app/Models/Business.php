@@ -9,6 +9,7 @@ class Business extends Model {
     use HasFactory;
 
     // protected $fillable = [];
+    protected $appends = ['avg_rate'];
     protected $hidden = ['reviews'];
 
     public function destination() {
@@ -43,7 +44,13 @@ class Business extends Model {
         return $this->attributes['on_user_wishlist'];
     }
 
-    protected $appends = ['avg_rate'];
+    public function setReviewedByUserAttribute($userId) {
+        $this->attributes['reviewed_by_user'] = $this->reviews()->where('reviews.user_id', $userId)->exists();
+    }
+
+    public function getReviewedByUserAttribute() {
+        return $this->attributes['reviewed_by_user'];
+    }
 
     public function getAvgRateAttribute() {
         return round($this->reviews->avg('rate'));

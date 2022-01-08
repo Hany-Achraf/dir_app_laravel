@@ -10,8 +10,9 @@ class BusinessController extends Controller {
         $business =  Business::findOrFail($id);
         $business->makeHidden('destination_id', 'created_at', 'updated_at');
 
-        $business->setAppends(['avg_rate', 'on_user_wishlist']);
+        $business->setAppends(['avg_rate', 'on_user_wishlist', 'reviewed_by_user']);
         $business->setOnWishlistAttribute($request['user_id']);
+        $business->setReviewedByUserAttribute($request['user_id']);
         return $business;
     }
 }
