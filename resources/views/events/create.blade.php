@@ -30,29 +30,10 @@
                             <input type="text" name="organizer" class="form-control" required>
                         </div>
 
-                        {{-- <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="datetimepicker">
-                        </div> --}}
-
-                        <div class='input-group form-group date'>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                </span>
-                            </div>
-                            <input type='text' name="date_time" class="form-control" id="datetimepicker" />
+                        <div class="form-group mb-3">
+                            <label for="">Date and time</label>
+                            <input type="datetime-local" name="date_time" class="form-control" required>
                         </div>
-
-                        {{-- <div class="form-group">
-                            <div class='input-group date' id='datetimepicker'>
-                                <input type='text' class="form-control" />
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div> --}}
-
-
                         <div class="form-outline mb-4">
                             <label for="">Description</label>
                             <textarea name="description" class="form-control" rows="3"></textarea>
