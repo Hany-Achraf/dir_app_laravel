@@ -37,6 +37,8 @@ use Illuminate\Support\Facades\Hash;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/search', [HomeController::class, 'search']);
+
 Route::get('/businesses/{id}', [BusinessController::class, 'show']);
 
 Route::get('/businesses/{business_id}/photos', [PhotoController::class, 'index']);

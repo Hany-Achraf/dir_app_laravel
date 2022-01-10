@@ -12,13 +12,13 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Add Event
-                        <a href="{{ url('events') }}" class="btn btn-danger float-right">BACK</a>
+                    <h4>Add Promotion
+                        <a href="{{ url('promotions') }}" class="btn btn-danger float-right">BACK</a>
                     </h4>
                 </div>
                 <div class="card-body">
 
-                    <form action="{{ url('events') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('promotions') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group mb-3">
@@ -26,22 +26,27 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <input type="text" name="organizer" class="form-control" placeholder="Organizer" required>
+                            <label for="">Business: </label>
+                            <select>
+                                @foreach ($businesses as $business)
+                                    <option value="{{ $business->id }}">{{ $business->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="">Date and time</label>
-                            <input type="datetime-local" name="date_time" class="form-control" required>
+                            <label for="">End date:</label>
+                            <input type="date" name="end_date" class="form-control" required>
                         </div>
                         <div class="form-outline mb-4">
-                            <textarea name="description" class="form-control" placeholder="Description" rows="3"></textarea>
+                            <textarea name="description" class="form-control" rows="3" placeholder="Description"></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="">Image</label>
-                            <input type="file" name="image" class="form-control" required>
+                            <label for="">Image:</label>
+                            <input type="file" name="image" class="form-control" placeholder="Poster" required>
                         </div>
                         <div class="form-group mb-3">
-                            <button type="submit" class="btn btn-primary">Save Event</button>
+                            <button type="submit" class="btn btn-primary">Save Promotion</button>
                         </div>
 
                     </form>

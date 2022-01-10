@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Destination;
 use App\Models\Promotion;
 use App\Models\Event;
+use App\Models\Business;
 
 class HomeController extends Controller {
     public function index() {
@@ -33,6 +34,26 @@ class HomeController extends Controller {
             'destinations'  =>  $destinations,
             'events'        =>  $events,
             'promotions'    =>  $promotions,
+        ];
+    }
+
+    public function search(Request $request) {
+        $searchKey = $request['search_key'];
+        $businesses = Business::where('name', 'LIKE', "%{$searchKey}%")
+                                ->paginate(20, ['id', 'name', 'icon_img_path']);
+
+        $events = Event::where('name', 'LIKE', "%{$searchKey}%")
+                        ->paginate(10, ['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
+
+        $promotions =  Promotion::where('name', 'LIKE', "%{$searchKey}%")->with('business')->paginate(10);
+        foreach($promotions as $promotion) {
+            $promotion->makeHidden('business_id', 'created_at', 'updated_at');
+        }
+
+        return [
+            'promotions'    =>  $promotions,
+            'events'        =>  $events,
+            'businesses'    => $businesses,
         ];
     }
 }

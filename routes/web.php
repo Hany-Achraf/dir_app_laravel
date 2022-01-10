@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Admin\DestinationController;
 use App\Http\Controllers\Web\Admin\EventController;
+use App\Http\Controllers\Web\Admin\PromotionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,16 @@ Route::get('/events/{id}/edit', [EventController::class, 'edit'])->name('events.
 Route::put('/events/{id}', [EventController::class, 'update'])->name('events.update');
 
 Route::delete('events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+
+
+// Promotions routes
+Route::get('/promotions', [PromotionController::class, 'index'])->name('promotions.index');
+
+Route::get('/promotions/create', [PromotionController::class, 'create'])->name('promotions.create');
+Route::post('/promotions', [PromotionController::class, 'store'])->name('promotions.store');
+
+
+Route::get('/promotions/{id}/edit', [PromotionController::class, 'edit'])->name('promotions.edit');
+Route::put('/promotions/{id}', [PromotionController::class, 'update'])->name('promotions.update');
+
+Route::delete('promotions/{id}', [PromotionController::class, 'destroy'])->name('promotions.destroy');
