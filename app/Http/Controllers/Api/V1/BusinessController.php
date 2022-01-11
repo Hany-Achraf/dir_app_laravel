@@ -15,4 +15,10 @@ class BusinessController extends Controller {
         $business->setReviewedByUserAttribute($request['user_id']);
         return $business;
     }
+
+    public function search(Request $request) {
+        $searchQuery = $request['search_query'];
+        $businesses = Business::where('name', 'LIKE', "%{$searchQuery}%")->paginate(20);
+        return $businesses;
+    }
 }

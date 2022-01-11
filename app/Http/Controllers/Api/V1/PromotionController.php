@@ -13,4 +13,10 @@ class PromotionController extends Controller {
         }
         return $promotions;
     }
+
+    public function search(Request $request) {
+        $searchQuery = $request['search_query'];
+        $promotions = Promotion::where('name', 'LIKE', "%{$searchQuery}%")->paginate(20);
+        return $promotions;
+    }
 }

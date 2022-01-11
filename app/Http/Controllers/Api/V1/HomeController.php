@@ -38,22 +38,35 @@ class HomeController extends Controller {
     }
 
     public function search(Request $request) {
-        $searchKey = $request['search_key'];
-        $businesses = Business::where('name', 'LIKE', "%{$searchKey}%")
-                                ->paginate(20, ['id', 'name', 'icon_img_path']);
+        $searchQuery = $request['search_query'];
 
-        $events = Event::where('name', 'LIKE', "%{$searchKey}%")
-                        ->paginate(10, ['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
+        $promotions =  Promotion::where('name', 'LIKE', "%{$searchQuery}%");
+        $totalPromotions =  $promotions->count();
+        $promotion =  $promotions->with('business')->take(2)->get();
+        $promotion->makeHidden('business_id', 'created_at', 'updated_at');
 
-        $promotions =  Promotion::where('name', 'LIKE', "%{$searchKey}%")->with('business')->paginate(10);
-        foreach($promotions as $promotion) {
-            $promotion->makeHidden('business_id', 'created_at', 'updated_at');
-        }
+
+        $events = Event::where('name', 'LIKE', "%{$searchQuery}%");
+        $totalEvents = $events->count();
+        $event = $events->take(2)->get(['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
+
+        $businesses = Business::where('name', 'LIKE', "%{$searchQuery}%");
+        $totalBusinesses = $businesses->count();
+        $business = $businesses->take(10)->get(['id', 'name', 'icon_img_path']);
 
         return [
-            'promotions'    =>  $promotions,
-            'events'        =>  $events,
-            'businesses'    => $businesses,
+            'promotions' => [
+                'total'     => $totalPromotions,
+                'data'      => $promotion,
+            ],
+            'events' =>  [
+                'total'     => $totalEvents,
+                'data'      => $event,
+            ],
+            'businesses' => [
+                'total'     => $totalBusinesses,
+                'data'      => $business,
+            ],
         ];
     }
 }

@@ -36,35 +36,30 @@ use Illuminate\Support\Facades\Hash;
 /** php artisn route:list */
 
 Route::get('/', [HomeController::class, 'index']);
-
 Route::get('/search', [HomeController::class, 'search']);
 
+Route::get('/businesses/search', [BusinessController::class, 'search']);
 Route::get('/businesses/{id}', [BusinessController::class, 'show']);
-
 Route::get('/businesses/{business_id}/photos', [PhotoController::class, 'index']);
-
 Route::get('/businesses/{business_id}/reviews', [ReviewController::class, 'index']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
-
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
 
 Route::get('/destinations', [DestinationController::class, 'index']);
-
 Route::get('/destinations/{id}', [DestinationController::class, 'show']);
 
 Route::get('/promotions', [PromotionController::class, 'index']);
+Route::get('/promotions/search', [PromotionController::class, 'search']);
 
 Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/search', [EventController::class, 'search']);
 
 Route::post('/wishlist/create', [WishlistController::class, 'create']);
-
 Route::delete('/wishlist/destroy', [WishlistController::class, 'destroy']);
-
 Route::get('/wishlist/{user_id}', [WishlistController::class, 'show']);
 
 Route::post('/reviews/create', [ReviewController::class, 'create']);
-
 Route::delete('/reviews/destroy', [ReviewController::class, 'destroy']);
 
 
