@@ -53,10 +53,6 @@ class CategoriesTableSeeder extends Seeder {
 
         Category::insert([
             [
-                'name' => 'All',
-                'parent_id' => 1,
-            ],
-            [
                 'name' => 'Men',
                 'parent_id' => 1,
             ],
@@ -68,10 +64,7 @@ class CategoriesTableSeeder extends Seeder {
                 'name' => 'Sportswear',
                 'parent_id' => 1,
             ],
-            [
-                'name' => 'All',
-                'parent_id' => 2,
-            ],
+
             [
                 'name' => 'Fast Food',
                 'parent_id' => 2,

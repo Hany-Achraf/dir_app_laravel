@@ -10,14 +10,16 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller {
     public function register(Request $request) {
         $fields = $request->validate([
-            'name' => 'required|string',
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
             'email' => 'required|string|unique:users,email',
             'password' => 'required|string|confirmed',
             'device_name' => 'required|string',
         ]);
 
         $user = User::create([
-            'name' => $fields['name'],
+            'firstname' => $fields['firstname'],
+            'lastname' => $fields['lastname'],
             'email' => $fields['email'],
             'password' => bcrypt($fields['password'])
         ]);

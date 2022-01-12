@@ -4,15 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBusinessesTable extends Migration
-{
+class CreateBusinessesTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -21,7 +19,8 @@ class CreateBusinessesTable extends Migration
             $table->text('description')->nullable();
             $table->string('phone_no');
             $table->string('address');
-            $table->text('location_on_map')->nullable();
+            $table->text('iframe_on_google_maps')->nullable();
+            $table->string('link_on_google_maps')->nullable();
             $table->string('working_time');
             $table->string('website_link')->nullable();
             $table->string('facebook_link')->nullable();

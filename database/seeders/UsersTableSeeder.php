@@ -15,28 +15,33 @@ class UsersTableSeeder extends Seeder {
         User::insert(
             [
                 [
-                    'name' => 'هاني أشرف',
+                    'firstname' => 'هاني',
+                    'lastname' => 'أشرف',
                     'avatar_img_path' => 'storage/images/avatars/hany.jpg',
                     'email' => 'hany@hany.net',
-                    'password' => '000000',
+                    'password' => '$2y$10$S0y3QJHF2LsjufVHPptD8O1KrYPxzRy/7wAVEaHlzWO9KpKsijqzW',
                 ],
                 [
-                    'name' => 'Omar K. Al Wakeel',
+                    'firstname' => 'Omar',
+                    'lastname' => 'K. Al Wakeel',
                     'avatar_img_path' => 'storage/images/avatars/omar.jpg',
                     'email' => 'omar@omar.net',
-                    'password' => '000000',
+                    'password' => '$2y$10$S0y3QJHF2LsjufVHPptD8O1KrYPxzRy/7wAVEaHlzWO9KpKsijqzW',
                 ],
                 [
-                    'name' => '楊仁忠',
+                    'firstname' => '楊',
+                    'lastname' => '仁忠',
                     'avatar_img_path' => 'storage/images/avatars/yong.jpg',
                     'email' => 'yong@yonh.net',
-                    'password' => '000000',
+                    'password' => '$2y$10$S0y3QJHF2LsjufVHPptD8O1KrYPxzRy/7wAVEaHlzWO9KpKsijqzW',
                 ],
                 [
-                    'name' => 'Khaled Qabel',
-                    'avatar_img_path' => 'storage/images/avatars/khaled.jpg',
+                    'firstname' => 'Khaled',
+                    'lastname' => 'Qabel',
+                    // 'avatar_img_path' => 'storage/images/avatars/khaled.jpg',
+                    'avatar_img_path' => null,
                     'email' => 'khaled@khaled.net',
-                    'password' => '000000',
+                    'password' => '$2y$10$S0y3QJHF2LsjufVHPptD8O1KrYPxzRy/7wAVEaHlzWO9KpKsijqzW',
                 ],
             ]
         );

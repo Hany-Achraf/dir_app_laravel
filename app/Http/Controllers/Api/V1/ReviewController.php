@@ -8,7 +8,7 @@ use App\Models\Review;
 class ReviewController extends Controller {
     public function index($business_id) {
         $reviews = Review::where('business_id', $business_id)
-                        ->with('user:id,name,avatar_img_path')
+                        ->with('user:id,firstname,lastname,avatar_img_path')
                         ->orderBy('created_at', 'desc')->get();
         foreach($reviews as $review) {
             $review->makeHidden('user_id', 'business_id', 'updated_at');
