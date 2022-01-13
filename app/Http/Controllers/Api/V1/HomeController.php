@@ -42,13 +42,13 @@ class HomeController extends Controller {
 
         $promotions =  Promotion::where('name', 'LIKE', "%{$searchQuery}%");
         $totalPromotions =  $promotions->count();
-        $promotion =  $promotions->with('business')->take(2)->get();
+        $promotion =  $promotions->with('business')->take(1)->get();
         $promotion->makeHidden('business_id', 'created_at', 'updated_at');
 
 
         $events = Event::where('name', 'LIKE', "%{$searchQuery}%");
         $totalEvents = $events->count();
-        $event = $events->take(2)->get(['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
+        $event = $events->take(1)->get(['id', 'name', 'description', 'organizer', 'img_path', 'date_time']);
 
         $businesses = Business::where('name', 'LIKE', "%{$searchQuery}%");
         $totalBusinesses = $businesses->count();

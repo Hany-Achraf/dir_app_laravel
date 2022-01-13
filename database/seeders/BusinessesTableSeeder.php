@@ -30,10 +30,8 @@ class BusinessesTableSeeder extends Seeder {
             ]);
         $business->categories()->attach(1);
         $business->categories()->attach(12);
-        $business->users()->attach(1);
-        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
-        $business->users()->attach(3);
-        // $business->users()->attach(['id' => 3, 'created_at' => Carbon::now()]);
+        $business->users()->attach(1, ['created_at' => Carbon::now()]);
+        $business->users()->attach(3, ['created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'Adidas',
@@ -53,10 +51,8 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(10);
         $business->categories()->attach(11);
         $business->categories()->attach(12);
-        $business->users()->attach(4);
-        // $business->users()->attach(['id' => 4, 'created_at' => Carbon::now()]);
-        $business->users()->attach(1);
-        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
+        $business->users()->attach(4, ['created_at' => Carbon::now()]);
+        $business->users()->attach(1, ['created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'Puma',
@@ -75,10 +71,8 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(10);
         $business->categories()->attach(12);
         $business->categories()->attach(11);
-        $business->users()->attach(2);
-        // $business->users()->attach(['id' => 2, 'created_at' => Carbon::now()]);
-        $business->users()->attach(1);
-        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
+        $business->users()->attach(2, ['created_at' => Carbon::now()]);
+        $business->users()->attach(1, ['created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'Crossover Concept Store',
@@ -115,8 +109,7 @@ class BusinessesTableSeeder extends Seeder {
         $business->categories()->attach(1);
         $business->categories()->attach(10);
         $business->categories()->attach(11);
-        $business->users()->attach(1);
-        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
+        $business->users()->attach(1, ['created_at' => Carbon::now()]);
 
         // Food
         $business = Business::create([
@@ -134,10 +127,8 @@ class BusinessesTableSeeder extends Seeder {
             ]);
         $business->categories()->attach(2);
         $business->categories()->attach(17);
-        $business->users()->attach(2);
-        // $business->users()->attach(['id' => 2, 'created_at' => Carbon::now()]);
-        $business->users()->attach(4);
-        // $business->users()->attach(['id' => 4, 'created_at' => Carbon::now()]);
+        $business->users()->attach(2, ['created_at' => Carbon::now()]);
+        $business->users()->attach(4, ['created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'McDonald\'s',
@@ -156,8 +147,7 @@ class BusinessesTableSeeder extends Seeder {
             ]);
         $business->categories()->attach(2);
         $business->categories()->attach(13);
-        $business->users()->attach(1);
-        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
+        $business->users()->attach(1, ['created_at' => Carbon::now()]);
 
         $business = Business::create([
             'name' => 'Pizza Hut',
@@ -176,7 +166,6 @@ class BusinessesTableSeeder extends Seeder {
             ]);
         $business->categories()->attach(2);
         $business->categories()->attach(13);
-        $business->users()->attach(1);
-        // $business->users()->attach(['id' => 1, 'created_at' => Carbon::now()]);
+        $business->users()->attach(1, ['created_at' => Carbon::now()]);
     }
 }

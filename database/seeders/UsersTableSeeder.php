@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder {
                     'firstname' => '楊',
                     'lastname' => '仁忠',
                     'avatar_img_path' => 'storage/images/avatars/yong.jpg',
-                    'email' => 'yong@yonh.net',
+                    'email' => 'yong@yong.net',
                     'password' => '$2y$10$S0y3QJHF2LsjufVHPptD8O1KrYPxzRy/7wAVEaHlzWO9KpKsijqzW',
                 ],
                 [
