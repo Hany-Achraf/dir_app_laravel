@@ -27,6 +27,7 @@ class HomeController extends Controller {
         $promotions =  Promotion::take(3)->with('business')->get();
         foreach($promotions as $promotion) {
             $promotion->makeHidden('business_id', 'created_at', 'updated_at');
+            $promotion->business->setAppends([]);
         }
 
         return [

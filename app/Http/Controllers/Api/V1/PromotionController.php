@@ -10,13 +10,18 @@ class PromotionController extends Controller {
         $promotions =  Promotion::with('business')->paginate(3);
         foreach($promotions as $promotion) {
             $promotion->makeHidden('business_id', 'created_at', 'updated_at');
+            $promotion->business->setAppends([]);
         }
         return $promotions;
     }
 
     public function search(Request $request) {
         $searchQuery = $request['search_query'];
-        $promotions = Promotion::where('name', 'LIKE', "%{$searchQuery}%")->paginate(20);
+        $promotions = Promotion::with('business')->where('name', 'LIKE', "%{$searchQuery}%")->paginate(20);
+        foreach($promotions as $promotion) {
+            $promotion->makeHidden('business_id', 'created_at', 'updated_at');
+            $promotion->business->setAppends([]);
+        }
         return $promotions;
     }
 }

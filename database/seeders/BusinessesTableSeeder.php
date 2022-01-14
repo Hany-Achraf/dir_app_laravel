@@ -140,8 +140,8 @@ class BusinessesTableSeeder extends Seeder {
             'link_on_google_maps' => 'https://goo.gl/maps/pW6BHwR59iQrVFzC8',
             'iframe_on_google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4493622302275!2d103.77518911439397!3d1.500958098905396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6ce180efcfb5%3A0x4cfa3e126a713ab5!2sThe%20Mall%2C%20Mid%20Valley%20Southkey!5e0!3m2!1sen!2smy!4v1640680339530!5m2!1sen!2smy" width="960" height="700" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
             'working_time' => 'Sun -Thurs (10:00am – 10:00pm)',
-            'website_link' => 'http://www.mcdonalds.com.my',
-            'facebook_link' => 'http://www.facebook.com/My.McDonalds',
+            'website_link' => 'https://www.mcdonalds.com.my',
+            'facebook_link' => 'https://www.facebook.com/My.McDonalds',
             'instagram_link' => 'https://www.instagram.com/mcdonaldsmalaysia',
             'destination_id' => 1,
             ]);
@@ -159,8 +159,8 @@ class BusinessesTableSeeder extends Seeder {
             'link_on_google_maps' => 'https://goo.gl/maps/pW6BHwR59iQrVFzC8',
             'iframe_on_google_maps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4493622302275!2d103.77518911439397!3d1.500958098905396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6ce180efcfb5%3A0x4cfa3e126a713ab5!2sThe%20Mall%2C%20Mid%20Valley%20Southkey!5e0!3m2!1sen!2smy!4v1640680339530!5m2!1sen!2smy" width="960" height="700" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
             'working_time' => 'Everyday (10:00am – 10:00pm)',
-            'website_link' => 'http://www.pizzahut.com.my',
-            'facebook_link' => 'facebook.com/pizzahutmalaysia',
+            'website_link' => 'https://www.pizzahut.com.my',
+            'facebook_link' => 'https://www.facebook.com/pizzahutmalaysia',
             'instagram_link' => 'https://www.instagram.com/pizzahutmalaysia',
             'destination_id' => 1,
             ]);
