@@ -29,7 +29,7 @@ class PromotionsTableSeeder extends Seeder {
                 'business_id' => 1,
             ],
             [
-                'name' => 'Jelajah Usahawan Digital (BOP)',
+                'name' => 'Starbucks Drink Extra 20% Off April Fools Promo',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                 'img_path' => 'storage/images/promotions/promotion3.jpg',
                 'end_date' => Carbon::now(),

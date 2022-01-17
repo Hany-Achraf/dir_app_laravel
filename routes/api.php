@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\V1\PhotoController;
 use App\Http\Controllers\Api\V1\ReviewController;
 use App\Http\Controllers\Api\V1\PromotionController;
 use App\Http\Controllers\Api\V1\EventController;
+use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\WishlistController;
 
 use App\Models\User;
@@ -37,6 +38,8 @@ use Illuminate\Support\Facades\Hash;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/search', [HomeController::class, 'search']);
+
+Route::post('/user/{id}/update', [UserController::class, 'update']);
 
 Route::get('/businesses/search', [BusinessController::class, 'search']);
 Route::get('/businesses/{id}', [BusinessController::class, 'show']);
