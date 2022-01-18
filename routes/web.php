@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Admin\DestinationController;
 use App\Http\Controllers\Web\Admin\EventController;
 use App\Http\Controllers\Web\Admin\PromotionController;
-
+use App\Http\Controllers\Api\V1\Auth\EmailVerificationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,9 @@ use App\Http\Controllers\Web\Admin\PromotionController;
 Route::get('/', function() {
     return view('welcome');
 });
+
+// This route should be named verification.verify
+Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
 
 // Destinations routes
 Route::get('/destinations', [DestinationController::class, 'index'])->name('destinations.index');

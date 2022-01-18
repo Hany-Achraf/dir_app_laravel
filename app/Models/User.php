@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\ResetPasswordNotification;
 
-class User extends Authenticatable {
+class User extends Authenticatable implements MustVerifyEmail
+{
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -17,7 +19,8 @@ class User extends Authenticatable {
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
         'email',
         'password',
     ];
@@ -43,9 +46,10 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
     ];
 
-    // public function getAvatarAttribute() {
-    //     return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) );
-    // }
+    public function sendPasswordResetNotification($token) {
+        $url = 'https://dir_app.test/reset-password?token=' . $token;
+        $this->notify(new ResetPasswordNotification($url));
+    }
 
     public function reviews() {
         return $this->hasMany(Review::class, 'user_id');

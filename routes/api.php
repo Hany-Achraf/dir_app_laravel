@@ -3,12 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Destination;
-use App\Models\Category;
-use App\Models\Business;
-use App\Models\Event;
-
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\V1\Auth\AuthController;
+use App\Http\Controllers\Api\V1\Auth\EmailVerificationController;
+use App\Http\Controllers\Api\V1\Auth\NewPasswordController;
 use App\Http\Controllers\Api\V1\HomeController;
 use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\DestinationController;
@@ -19,9 +16,6 @@ use App\Http\Controllers\Api\V1\PromotionController;
 use App\Http\Controllers\Api\V1\EventController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\WishlistController;
-
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,45 +60,20 @@ Route::post('/reviews/create', [ReviewController::class, 'create']);
 Route::delete('/reviews/destroy', [ReviewController::class, 'destroy']);
 
 
-/** Section - Following up with bravetrasery */
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::group(['middleware' => 'auth:sanctum'], function() {
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
     Route::get('/logout', [AuthController::class, 'logout']);
 });
-/** End section */
 
+Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail'])->name('verification.send')->middleware('auth:sanctum');
+// This route should be named verification.verify
+// Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify')->middleware('auth:sanctum');
 
-/** Section - Following up with Abdulaziz */
-// Route::post('/sanctum/token', function (Request $request) {
-//     $request->validate([
-//         'email' => 'required|email',
-//         'password' => 'required',
-//         'device_name' => 'required',
-//     ]);
+Route::post('/forgot-password', [NewPasswordController::class, 'forgotPassword']);
+Route::post('/reset-password', [NewPasswordController::class, 'reset']);
 
-//     $user = User::where('email', $request->email)->first();
-
-//     if (! $user || ! Hash::check($request->password, $user->password)) {
-//         throw ValidationException::withMessages([
-//             'email' => ['The provided credentials are incorrect.'],
-//         ]);
-//     }
-
-//     return $user->createToken($request->device_name)->plainTextToken;
-// });
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-// Route::middleware('auth:sanctum')->get('/user/revoke', function (Request $request) {
-//     $user = $request->user();
-//     $user->tokens()->delete();
-//     return ["message" => "Token were deleted successfully!"];
-// });
-/** End Section */

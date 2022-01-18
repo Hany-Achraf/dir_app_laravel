@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use Illuminate\Http\Request;
 use App\Models\Photo;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PhotoController extends Controller {
     public function index($id) {

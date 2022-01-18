@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Models\Destination;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 
 class DestinationController extends Controller {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Models\Promotion;
 use App\Models\Business;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PromotionController extends Controller {
     public function index() {

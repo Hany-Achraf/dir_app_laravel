@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
+// use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller {
     public function register(Request $request) {
@@ -62,7 +64,7 @@ class AuthController extends Controller {
     }
 
     public function logout(Request $request) {
-        auth()->user()->tokens()->delete();
+        $request->user()->tokens()->delete();
 
         return [
             'message' => 'Tokens are deleted (Logging out)',

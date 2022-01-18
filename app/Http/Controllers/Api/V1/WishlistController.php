@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 
 class WishlistController extends Controller {
     public function show($user_id) {
-        return User::findOrFail($user_id, ['id'])->businesses;
+        $businesses = User::findOrFail($user_id, ['id'])->businesses;
+        $response = [
+            'next_page_url' => null,
+            'data' => $businesses,
+        ];
+        return $response;
     }
 
     public function create(Request $request) {
