@@ -10,12 +10,9 @@ use Carbon\Carbon;
 
 class WishlistController extends Controller {
     public function show($user_id) {
-        $businesses = User::findOrFail($user_id, ['id'])->businesses;
-        $response = [
-            'next_page_url' => null,
-            'data' => $businesses,
-        ];
-        return $response;
+        return User::findOrFail($user_id, ['id'])
+                    ->businesses()
+                    ->paginate(5, ['businesses.id', 'name', 'icon_img_path']);
     }
 
     public function create(Request $request) {

@@ -57,9 +57,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     // wishlist businesses
     public function businesses() {
-        return $this->belongsToMany(Business::class, 'wishlist')
-                    ->as('wishlist')
-                    ->withPivot('created_at')
-                    ->select(['businesses.id', 'businesses.name', 'businesses.icon_img_path']);
+        return $this->belongsToMany(Business::class, 'wishlist')->as('wishlist')->withPivot('created_at');
     }
 }

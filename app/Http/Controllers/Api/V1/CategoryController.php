@@ -19,11 +19,15 @@ class CategoryController extends Controller {
     }
 
     public function show($id) {
-        $category = Category::findOrFail($id, ['id']);
-        $businesses = $category->businesses;
+
+        $businesses = Category::findOrFail($id, ['id'])
+                        ->businesses()
+                        ->paginate(3, ['businesses.id', 'name', 'icon_img_path', 'working_time']);
+
         foreach($businesses as $business) {
             $business->makeHidden('pivot');
         }
+
         return $businesses;
     }
 }

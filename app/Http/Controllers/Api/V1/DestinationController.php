@@ -12,6 +12,8 @@ class DestinationController extends Controller {
     }
 
     public function show($id) {
-        return Destination::findOrFail($id, ['id'])->businesses;
+        return Destination::findOrFail($id, ['id'])
+                            ->businesses()
+                            ->paginate(3, ['id', 'name', 'icon_img_path', 'working_time']);
     }
 }

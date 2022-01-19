@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Models;
+/**
+ * This model can be used in the future to enable feedback feature.
+ */
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+// namespace App\Models;
 
-class Feedback extends Model
-{
-    use HasFactory;
-}
+// use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Illuminate\Database\Eloquent\Model;
+
+// class Feedback extends Model
+// {
+//     use HasFactory;
+// }
