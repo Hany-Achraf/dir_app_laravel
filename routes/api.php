@@ -17,6 +17,9 @@ use App\Http\Controllers\Api\V1\EventController;
 use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\WishlistController;
 
+
+use App\Http\Controllers\Api\V1\ImageController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,6 +32,10 @@ use App\Http\Controllers\Api\V1\WishlistController;
 */
 
 /** php artisn route:list */
+
+
+Route::get('/image', [ImageController::class, 'show']);
+
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/search', [HomeController::class, 'search']);
@@ -60,6 +67,8 @@ Route::post('/reviews/create', [ReviewController::class, 'create']);
 Route::delete('/reviews/destroy', [ReviewController::class, 'destroy']);
 
 
+// Auth
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -71,9 +80,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
 });
 
 Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail'])->name('verification.send')->middleware('auth:sanctum');
-// This route should be named verification.verify
-// Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify')->middleware('auth:sanctum');
 
 Route::post('/forgot-password', [NewPasswordController::class, 'forgotPassword']);
-Route::post('/reset-password', [NewPasswordController::class, 'reset']);
 

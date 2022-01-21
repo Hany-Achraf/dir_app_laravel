@@ -29,7 +29,7 @@ class AuthController extends Controller {
         $token = $user->createToken($fields['device_name'])->plainTextToken;
 
         $response = [
-            'user' => $user,
+            // 'user' => $user,
             'token' => $token,
         ];
 
@@ -56,7 +56,7 @@ class AuthController extends Controller {
         $token = $user->createToken($fields['device_name'])->plainTextToken;
 
         $response = [
-            'user' => $user,
+            // 'user' => $user,
             'token' => $token,
         ];
 

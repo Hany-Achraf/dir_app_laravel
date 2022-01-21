@@ -57,14 +57,11 @@ class NewPasswordController extends Controller
         );
 
         if ($status == Password::PASSWORD_RESET) {
-            return response([
-                'message'=> 'Password reset successfully'
-            ]);
+
+            return('Password reset successfully');
         }
 
-        return response([
-            'message'=> __($status)
-        ], 500);
+        return __($status);
 
     }
 

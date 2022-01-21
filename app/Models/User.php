@@ -47,7 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function sendPasswordResetNotification($token) {
-        $url = 'https://dir_app.test/reset-password?token=' . $token;
+        $url = url('reset-password?token='.$token);
         $this->notify(new ResetPasswordNotification($url));
     }
 
