@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 
@@ -18,7 +17,7 @@ class CategoryController extends Controller {
         return $categories;
     }
 
-    public function show($id) {
+    public function showBusinesses($id) {
 
         $businesses = Category::findOrFail($id, ['id'])
                         ->businesses()

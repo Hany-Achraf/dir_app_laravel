@@ -9,7 +9,7 @@ use DB;
 use Carbon\Carbon;
 
 class WishlistController extends Controller {
-    public function show($user_id) {
+    public function showBusinesses($user_id) {
         return User::findOrFail($user_id, ['id'])
                     ->businesses()
                     ->paginate(5, ['businesses.id', 'name', 'icon_img_path']);
